@@ -1,0 +1,193 @@
+{
+  "description": "Dialogflow Intent Configuration for Alumni Platform Chatbot",
+  "version": "2.0",
+  "intents": [
+    {
+      "displayName": "Default Welcome Intent",
+      "trainingPhrases": [
+        "hello", "hi", "hey", "good morning", "good afternoon", 
+        "good evening", "what's up", "howdy", "greetings"
+      ],
+      "responses": ["Hello! 👋 I'm your AI assistant. How can I help you today?"]
+    },
+    {
+      "displayName": "Default Fallback Intent",
+      "trainingPhrases": [],
+      "responses": ["I didn't quite catch that. I can help with events, jobs, and alumni connections. What would you like to know?"]
+    },
+    {
+      "displayName": "event.list",
+      "trainingPhrases": [
+        "upcoming events", "show me events", "what events are happening",
+        "events this month", "next alumni event", "any events soon",
+        "event schedule", "conferences", "workshops", "webinars",
+        "what's happening", "calendar of events", "networking events"
+      ],
+      "responses": ["Let me check the upcoming events for you."],
+      "action": "fetch.events",
+      "webhookEnabled": true
+    },
+    {
+      "displayName": "event.register",
+      "trainingPhrases": [
+        "how to register for event", "register for an event", 
+        "sign up for event", "join an event", "event registration",
+        "how do I attend an event", "enroll in event"
+      ],
+      "responses": ["To register for an event: 1) Go to Events page, 2) Click on an event, 3) Click 'Register'. You'll get a confirmation email!"]
+    },
+    {
+      "displayName": "job.list",
+      "trainingPhrases": [
+        "latest jobs", "new job postings", "job openings",
+        "show me jobs", "available positions", "career opportunities",
+        "internships", "who is hiring", "job listings",
+        "employment opportunities", "work opportunities"
+      ],
+      "responses": ["Let me find the latest job opportunities for you."],
+      "action": "fetch.jobs",
+      "webhookEnabled": true
+    },
+    {
+      "displayName": "job.apply",
+      "trainingPhrases": [
+        "how to apply for job", "apply for a position", 
+        "job application process", "submit my resume",
+        "how do I apply", "application steps", "send my CV"
+      ],
+      "responses": ["To apply: 1) Browse Jobs page, 2) Click a listing, 3) Review requirements, 4) Click 'Apply Now', 5) Upload your resume. Pro tip: Keep your profile updated!"]
+    },
+    {
+      "displayName": "alumni.search",
+      "trainingPhrases": [
+        "find alumni", "search alumni", "alumni directory",
+        "connect with alumni", "networking", "alumni at google",
+        "alumni at microsoft", "who works at", "find mentor",
+        "professional connections", "alumni network"
+      ],
+      "responses": ["I can help you find alumni! What company, location, or field are you interested in?"],
+      "action": "search.alumni",
+      "webhookEnabled": true,
+      "parameters": [
+        {"name": "company", "entityType": "@sys.any", "required": false},
+        {"name": "location", "entityType": "@sys.geo-city", "required": false}
+      ]
+    },
+    {
+      "displayName": "mentorship.request",
+      "trainingPhrases": [
+        "request mentorship", "find a mentor", "get mentorship",
+        "need guidance", "career advice", "mentor me",
+        "how to get a mentor", "mentorship program"
+      ],
+      "responses": ["To request mentorship: 1) Browse Alumni Directory, 2) Find someone in your field, 3) Click 'Request Mentorship', 4) Write a brief intro about yourself. Be professional and specific!"]
+    },
+    {
+      "displayName": "faq.membership",
+      "trainingPhrases": [
+        "How do I become a member", "membership requirements", 
+        "join alumni association", "sign up", "create account",
+        "how to register", "become a member"
+      ],
+      "responses": ["Membership is open to alumni and students. Register on the platform with your university email to get started!"]
+    },
+    {
+      "displayName": "faq.fees",
+      "trainingPhrases": [
+        "membership fee", "is it free", "cost of joining",
+        "how much does it cost", "pricing", "subscription"
+      ],
+      "responses": ["Great news! Membership is completely free for students and alumni. 🎉"]
+    },
+    {
+      "displayName": "faq.support",
+      "trainingPhrases": [
+        "contact support", "help desk", "technical issue",
+        "report a problem", "need help", "support email",
+        "how to contact admin"
+      ],
+      "responses": ["You can reach support at support@alumni-platform.com. Response time is usually within 24 hours!"]
+    },
+    {
+      "displayName": "faq.platform",
+      "trainingPhrases": [
+        "what is this platform", "what can I do here",
+        "platform features", "about this website",
+        "how does this work"
+      ],
+      "responses": ["The Alumni Association Platform connects students with alumni for mentorship, job opportunities, and networking events. You can find jobs, register for events, and build your professional network!"]
+    },
+    {
+      "displayName": "navigation.events",
+      "trainingPhrases": [
+        "go to events", "take me to events", "open events page",
+        "events section", "show events page"
+      ],
+      "responses": ["Taking you to the Events page now..."],
+      "action": "navigate.events"
+    },
+    {
+      "displayName": "navigation.jobs",
+      "trainingPhrases": [
+        "go to jobs", "take me to jobs", "open jobs page",
+        "jobs section", "show jobs page", "career page"
+      ],
+      "responses": ["Taking you to the Jobs page now..."],
+      "action": "navigate.jobs"
+    },
+    {
+      "displayName": "navigation.alumni",
+      "trainingPhrases": [
+        "go to alumni", "take me to alumni", "open alumni directory",
+        "alumni section", "show alumni page"
+      ],
+      "responses": ["Taking you to the Alumni Directory now..."],
+      "action": "navigate.alumni"
+    },
+    {
+      "displayName": "navigation.profile",
+      "trainingPhrases": [
+        "go to profile", "my profile", "open profile",
+        "edit profile", "update profile", "settings"
+      ],
+      "responses": ["Taking you to your Profile page now..."],
+      "action": "navigate.profile"
+    },
+    {
+      "displayName": "gratitude",
+      "trainingPhrases": [
+        "thank you", "thanks", "thanks a lot", "appreciate it",
+        "that's helpful", "awesome", "great", "perfect"
+      ],
+      "responses": ["You're welcome! 😊 Is there anything else I can help you with?"]
+    },
+    {
+      "displayName": "farewell",
+      "trainingPhrases": [
+        "bye", "goodbye", "see you", "later", "exit",
+        "that's all", "nothing else"
+      ],
+      "responses": ["Goodbye! 👋 Feel free to chat anytime. Have a great day!"]
+    },
+    {
+      "displayName": "bot.identity",
+      "trainingPhrases": [
+        "who are you", "what are you", "are you a bot",
+        "are you real", "what's your name", "tell me about yourself"
+      ],
+      "responses": ["I'm your AI assistant for the Alumni Platform! 🤖 I can help you find events, jobs, connect with alumni, and navigate the platform. What would you like to know?"]
+    }
+  ],
+  "entities": [
+    {
+      "name": "company",
+      "entries": [
+        {"value": "Google", "synonyms": ["google", "alphabet", "googl"]},
+        {"value": "Microsoft", "synonyms": ["microsoft", "msft", "ms"]},
+        {"value": "Amazon", "synonyms": ["amazon", "aws", "amzn"]},
+        {"value": "Meta", "synonyms": ["meta", "facebook", "fb"]},
+        {"value": "Apple", "synonyms": ["apple", "aapl"]}
+      ]
+    }
+  ]
+}
